@@ -6,10 +6,6 @@ router.get('/IniciarSesion', (req, res) => {
     metodo.IniciarSesion(req.body.usuario, req.body.contrasena, res);
 });
 
-router.patch('/usuario', (req, res) => {
-    metodo.Iusuario( req.body.nombre, req.body.apellido,req.body.correo, req.body.contrasena, req.body.rolID, NULL, res);
-});
-
 router.patch('/IniciarSesion', (req, res) => {
     metodo.IniciarSesion(req.body.usuario, req.body.contrasena, res);
 });

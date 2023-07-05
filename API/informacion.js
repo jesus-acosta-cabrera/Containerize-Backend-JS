@@ -50,4 +50,7 @@ router.get('/Secciones/Mostrar', (req, res ) => {
     metodo.mostrarSecciones(req.body.codigo,res);
 });
 
+router.get('/Preguntas/Usuario', (req, res) => {
+    metodo.mostrarPreguntas(req.body.usuario, res);
+});
 module.exports = router;

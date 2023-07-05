@@ -141,6 +141,16 @@ async function mostrarSecciones(codigo ,res){
     res.status(200).json(result.recordset);
 }
 
+async function mostrarPreguntas(usuario, res){
+    await sql.connect(process.env.Server);
+
+    let pool = new sql.Request();
+    await pool.input('usuario', usuario);
+
+    let result = await pool.execute('obtenerPreguntas');
+
+    res.status(200).json(result.recordset);
+}
 module.exports = {
     Indice : calcularIndice,
     usuarioExiste : usuarioExiste,
@@ -153,5 +163,6 @@ module.exports = {
     mostrarHorarios : mostrarHorarios,
     mostrarSecciones : mostrarSecciones,
     mostrarAreas : mostrarAreas,
+    mostrarPreguntas : mostrarPreguntas,
     mostrarRoles : mostrarRoles
 }

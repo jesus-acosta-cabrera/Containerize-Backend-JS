@@ -3,6 +3,18 @@ const CRUD = require('./DB/usuario');
 const exp = require('express');
 const router = exp.Router();
 
+router.post('/Insertar', (req, res) => {
+    CRUD.Iusuario(req.body.nombre, req.body.usuario, req.body.apellido,req.body.correo, req.body.contrasena, req.body.rolID, NULL, res);
+});
+
+router.patch('/Actualizar', (req, res) => {
+    CRUD.Musuario(req.body.ID,req.body.nombre, req.body.apellido,req.body.correo, req.body.contrasena,res);
+});
+
+router.delete('/Eliminar', (req, res) => {
+    CRUD.Eusuario(req.body.ID,res);
+});
+
 router.get('/Asignaturas/Cursadas',(req, res) => {
     metodo.AsignaturasTomadas(req.body.usuario, res);
 });

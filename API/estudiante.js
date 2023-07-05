@@ -20,7 +20,7 @@ router.delete('/sSeccion', (req, res) => {
 });
 
 router.post('/Insertar', (req, res) => {
-    CRUD.Iusuario(req.body.nombre, req.body.apellido,req.body.correo, req.body.contrasena, req.body.rolID, req.body.carreraID, res);
+    CRUD.Iusuario(req.body.nombre, req.body.usuario, req.body.apellido,req.body.correo, req.body.contrasena, req.body.rolID, req.body.carreraID, res);
 });
 
 router.patch('/Actualizar', (req, res) => {
