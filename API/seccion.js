@@ -18,5 +18,5 @@ router.delete('/Eliminar', (req, res) => {
 
 router.post('/Crear', (req, res ) => {
     metodo.Iseccion (req.body.numero, req.body.periodo, req.body.profesor, req.body.codigoA, res);
-})
+});
 module.exports = router;
