@@ -10,11 +10,11 @@ router.post('/IniciarSesion', (req, res) => {
     metodo.IniciarSesion(req.body.usuario, req.body.contrasena, res);
 });
 
-router.post('/Pregunta', (req, res) => {
+router.post('/Pregunta/Insertar', (req, res) => {
     metodo.Ipregunta(req.body.preguntaID, req.body.usuario, req.body.respuesta, res);
 });
 
-router.patch('/Pregunta', (req, res) => {
+router.patch('/Pregunta/Modificar', (req, res) => {
     metodo.Mpregunta(req.body.preguntaID, req.body.usuario, req.body.respuesta, res);
 });
 

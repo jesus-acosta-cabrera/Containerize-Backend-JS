@@ -151,7 +151,7 @@ async function mostrarSecciones(codigo ,res){
     res.status(200).json(result.recordset);
 }
 
-async function mostrarPreguntas(usuario, res){
+async function obtenerPreguntas(usuario, res){
     await sql.connect(process.env.Server);
 
     let pool = new sql.Request();
@@ -194,7 +194,7 @@ module.exports = {
     mostrarHorarios : mostrarHorarios,
     mostrarSecciones : mostrarSecciones,
     mostrarAreas : mostrarAreas,
-    mostrarPreguntas : mostrarPreguntas,
+    obtenerPreguntas : obtenerPreguntas,
     mostrarProfesoresAsignaturas : mostrarProfesoresAsignaturas,
     mostrarProfesores : mostrarProfesores,
     mostrarUsuarios : mostrarUsuarios,

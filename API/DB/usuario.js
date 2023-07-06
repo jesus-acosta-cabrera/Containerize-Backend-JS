@@ -59,11 +59,11 @@ async function eliminarUsuario(ID, res) {
     });
 }
 
-async function insertarPregunta(pID, usuario, respuesta, res){
+async function insertarPregunta(preguntaID, usuario, respuesta, res){
     await sql.connect(process.env.Server);
 
     let pool = new sql.Request();
-    await pool.input('preguntaID',pID);
+    await pool.input('preguntaID',preguntaID);
     await pool.input('usuario',usuario);
     await pool.input('respuesta',respuesta);
 

@@ -59,10 +59,10 @@ router.get('/Profesores/Mostrar', (req, res) => {
 });
 
 router.get('/Preguntas/Usuario', (req, res) => {
-    metodo.mostrarPreguntas(req.body.usuario, res);
+    metodo.obtenerPreguntas(req.body.usuario, res);
 });
 
 router.get('/Asignaturas/Profesores', (req, res) => {
     metodo.mostrarProfesoresAsignaturas(res);
-})
+});
 module.exports = router;

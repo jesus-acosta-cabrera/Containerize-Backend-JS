@@ -19,4 +19,12 @@ router.delete('/Eliminar', (req, res) => {
 router.post('/Crear', (req, res ) => {
     metodo.Iseccion (req.body.numero, req.body.periodo, req.body.profesor, req.body.codigoA, res);
 });
+
+router.get('/Estudiantes', (req, res) => {
+    metodo.estudianteSeccion(req.body.seccion, res);
+});
+
+router.get('/Profesores', (req, res) =>{
+    metodo.seccionesProfesor(req.body.profesor, res);
+})
 module.exports = router;

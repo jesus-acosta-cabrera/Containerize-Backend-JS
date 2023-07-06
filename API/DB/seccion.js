@@ -52,9 +52,31 @@ async function eliminarSeccion(ID, res) {
     });
 }
 
+async function seccionesProfesor(profesor, res) {
+    await sql.connect(process.env.Server)
+
+    let pool = new sql.Request();
+    await pool.input('profesor',profesor);
+    let result = await pool.execute('seccionesProfesor');
+    
+    res.status(200).json(result.recordset);
+}
+
+async function estudianteSeccion(seccion, res) {
+    await sql.connect(process.env.Server)
+
+    let pool = new sql.Request();
+    await pool.input('seccionID',seccion);
+    let result = await pool.execute('estudiantesSeccion');
+    
+    res.status(200).json(result.recordset);
+}
+
 module.exports = {
     asignarHorario : asignarHorario,
     Iseccion : insertarSeccion,
     Mseccion : editarHorario,
+    estudianteSeccion : estudianteSeccion,
+    seccionesProfesor : seccionesProfesor,
     Eseccion : eliminarSeccion
 }
