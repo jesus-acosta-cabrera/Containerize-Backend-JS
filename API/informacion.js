@@ -52,7 +52,11 @@ router.get('/Secciones/Mostrar', (req, res ) => {
 
 router.get('/Usuarios/Mostrar', (req, res) => {
     metodo.mostrarUsuarios(res);
-})
+});
+
+router.get('/Profesores/Mostrar', (req, res) => {
+    metodo.mostrarProfesores(res);
+});
 
 router.get('/Preguntas/Usuario', (req, res) => {
     metodo.mostrarPreguntas(req.body.usuario, res);

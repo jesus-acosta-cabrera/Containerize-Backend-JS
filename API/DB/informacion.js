@@ -56,6 +56,16 @@ async function mostrarCarreras (res){
     await res.status(200).json(result.recordset);
 }
 
+async function mostrarProfesores (res){
+    await sql.connect(process.env.Server);
+
+    let pool = new sql.Request();
+
+    let result = await pool.execute('mostrarProfesores');
+
+    await res.status(200).json(result.recordset);
+}
+
 async function mostrarRoles (res){
     await sql.connect(process.env.Server);
 
@@ -186,6 +196,7 @@ module.exports = {
     mostrarAreas : mostrarAreas,
     mostrarPreguntas : mostrarPreguntas,
     mostrarProfesoresAsignaturas : mostrarProfesoresAsignaturas,
+    mostrarProfesores : mostrarProfesores,
     mostrarUsuarios : mostrarUsuarios,
     mostrarRoles : mostrarRoles
 }
