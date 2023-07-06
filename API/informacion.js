@@ -58,7 +58,7 @@ router.get('/Profesores/Mostrar', (req, res) => {
     metodo.mostrarProfesores(res);
 });
 
-router.get('/Preguntas/Usuario', (req, res) => {
+router.post('/Preguntas/Usuario', (req, res) => {
     metodo.obtenerPreguntas(req.body.usuario, res);
 });
 

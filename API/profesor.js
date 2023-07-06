@@ -8,7 +8,7 @@ router.post('/Insertar', (req, res) => {
 });
 
 router.patch('/Actualizar', (req, res) => {
-    CRUD.Musuario(req.body.ID,req.body.nombre, req.body.apellido,req.body.correo, req.body.contrasena,res);
+    CRUD.Musuario(req.body.usuario,req.body.nombre, req.body.apellido,req.body.correo, req.body.contrasena,res);
 });
 
 router.delete('/Eliminar', (req, res) => {

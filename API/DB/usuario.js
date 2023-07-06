@@ -31,11 +31,11 @@ async function insertarUsuario(nombre, usuario, apellido, correo, contrasena, ro
     });
 }
 
-async function editarUsuario(ID, nombre, apellido, correo, contrasena, res) {
+async function editarUsuario(usuario, nombre, apellido, correo, contrasena, res) {
     await sql.connect(process.env.Server)
 
     let pool = new sql.Request();
-    await pool.input('ID',ID);
+    await pool.input('usuario',usuario);
     await pool.input('nombre',nombre);
     await pool.input('apellido',apellido);
     await pool.input('correo',correo);
