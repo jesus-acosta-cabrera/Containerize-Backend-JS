@@ -54,9 +54,22 @@ async function asignarCalificacion( estudiante, seccionID, calificacion, res){
     });
 }
 
+async function seccionesProfesor(profesor, res){
+    await sql.connect(process.env.Server);
+
+    let pool = new sql.Request();
+
+    await pool.input('profesor',profesor);
+
+    let result = await pool.execute('seccionesProfesor');
+
+    res.status(200).json(result.recordset);
+}
+
 module.exports = {
     AsignaturasTomadas : asignaturasCursadas,
     cantidadAsignaturas : cantidadAsignaturas,
     asignaturasCursando : asignaturasCursando,
+    seccionesProfesor : seccionesProfesor,
     asignarCalificacion : asignarCalificacion 
 }

@@ -23,11 +23,15 @@ router.get('/Asignaturas/Cursando',(req, res) => {
     metodo.asignaturasCursando(req.body.profesor, req.body.periodo, res);
 });
 
-router.get('/Asignaturas/Cantidad',(req, res) => {
+router.post('/Asignaturas/Cantidad',(req, res) => {
     metodo.cantidadAsignaturas(req.body.profesor, req.body.periodo, res);
 });
 
 router.patch('/Calificar',(req, res) => {
     metodo.asignarCalificacion(req.body.estudiante,req.body.seccionID,req.body.calificacion,res);
 });
+
+router.post('/Secciones', (req, res) => {
+    metodo.seccionesProfesor(req.body.profesor, res);
+})
 module.exports = router;
