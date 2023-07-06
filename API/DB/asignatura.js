@@ -1,12 +1,13 @@
 const sql = require('mssql');
 
-async function insertarAsignatura(codigo, nombre,credito, res) {
+async function insertarAsignatura(codigo, nombre,credito, area, res) {
     await sql.connect(process.env.Server)
 
     let pool = new sql.Request();
     await pool.input('codigo',codigo);
     await pool.input('nombre',nombre);
     await pool.input('credito',credito);
+    await pool.input('areaID', area)
     let result = await pool.execute('insertarAsignatura');
 
     await res.status(200).json({
@@ -42,8 +43,22 @@ async function eliminarAsignatura(ID, res) {
     });
 }
 
+async function asignarProfesor(profesor, codigo, res) {
+    await sql.connect(process.env.Server)
+
+    let pool = new sql.Request();
+    await pool.input('profesor',profesor);
+    await pool.input('codigoA',codigo);
+    let result = await pool.execute('insertarProfesorAsignatura');
+
+    await res.status(200).json({
+        message: "Consulta realizada."
+    });
+}
+
 module.exports = {
     Iasignatura : insertarAsignatura,
     Masignatura : editarAsignatura,
+    asignarProfesor : asignarProfesor,
     Easignatura : eliminarAsignatura
 }
