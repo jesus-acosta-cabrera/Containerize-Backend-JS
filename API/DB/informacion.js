@@ -151,6 +151,27 @@ async function mostrarPreguntas(usuario, res){
 
     res.status(200).json(result.recordset);
 }
+
+async function mostrarProfesoresAsignaturas(res){
+    await sql.connect(process.env.Server);
+
+    let pool = new sql.Request();
+
+    let result = await pool.execute('mostrarProfesoresAsignatura');
+
+    res.status(200).json(result.recordset);
+}
+
+async function mostrarUsuarios(res){
+    await sql.connect(process.env.Server);
+
+    let pool = new sql.Request();
+
+    let result = await pool.execute('mostrarUsuarios');
+
+    res.status(200).json(result.recordset);
+}
+
 module.exports = {
     Indice : calcularIndice,
     usuarioExiste : usuarioExiste,
@@ -164,5 +185,7 @@ module.exports = {
     mostrarSecciones : mostrarSecciones,
     mostrarAreas : mostrarAreas,
     mostrarPreguntas : mostrarPreguntas,
+    mostrarProfesoresAsignaturas : mostrarProfesoresAsignaturas,
+    mostrarUsuarios : mostrarUsuarios,
     mostrarRoles : mostrarRoles
 }

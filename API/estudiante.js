@@ -31,11 +31,11 @@ router.delete('/Eliminar', (req, res) => {
     CRUD.Eusuario(req.body.ID,res);
 });
 
-router.get('/Asignaturas/Cursadas', (req, res) => {
+router.post('/Asignaturas/Cursadas', (req, res) => {
     metodo.AsignaturasTomadas(req.body.usuario, res);
 });
 
-router.get('/Asignaturas/Cursando',(req, res) => {
+router.post('/Asignaturas/Cursando',(req, res) => {
     metodo.asignaturasCursando(req.body.estudiante, req.body.periodo, res);
 });
 

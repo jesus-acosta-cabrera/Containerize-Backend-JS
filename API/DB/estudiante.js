@@ -55,7 +55,7 @@ async function asignaturasCursando(estudiante, periodo, res){
     await pool.input('periodo',periodo);
 
     let result = await pool.execute('asignaturasCursandoEstudiante');
-
+    
     res.status(200).json(result.recordset);
 }
 

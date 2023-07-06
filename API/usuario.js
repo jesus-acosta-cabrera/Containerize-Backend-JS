@@ -6,7 +6,7 @@ router.get('/IniciarSesion', (req, res) => {
     metodo.IniciarSesion(req.body.usuario, req.body.contrasena, res);
 });
 
-router.patch('/IniciarSesion', (req, res) => {
+router.post('/IniciarSesion', (req, res) => {
     metodo.IniciarSesion(req.body.usuario, req.body.contrasena, res);
 });
 

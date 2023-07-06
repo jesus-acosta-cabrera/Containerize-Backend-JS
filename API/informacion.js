@@ -2,7 +2,7 @@ const metodo = require('./DB/informacion');
 const exp = require('express');
 const router = exp.Router();
 
-router.get('/Indice/Calcular', (req, res ) => {
+router.post('/Indice/Calcular', (req, res ) => {
     metodo.Indice(req.body.estudiante, res);
 });
 
@@ -50,7 +50,15 @@ router.get('/Secciones/Mostrar', (req, res ) => {
     metodo.mostrarSecciones(req.body.codigo,res);
 });
 
+router.get('/Usuarios/Mostrar', (req, res) => {
+    metodo.mostrarUsuarios(res);
+})
+
 router.get('/Preguntas/Usuario', (req, res) => {
     metodo.mostrarPreguntas(req.body.usuario, res);
 });
+
+router.get('/Asignaturas/Profesores', (req, res) => {
+    metodo.mostrarProfesoresAsignaturas(res);
+})
 module.exports = router;
