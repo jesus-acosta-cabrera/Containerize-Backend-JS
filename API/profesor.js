@@ -19,7 +19,7 @@ router.get('/Asignaturas/Cursadas',(req, res) => {
     metodo.AsignaturasTomadas(req.body.usuario, res);
 });
 
-router.get('/Asignaturas/Cursando',(req, res) => {
+router.post('/Asignaturas/Cursando',(req, res) => {
     metodo.asignaturasCursando(req.body.profesor, req.body.periodo, res);
 });
 
@@ -33,5 +33,9 @@ router.patch('/Calificar',(req, res) => {
 
 router.post('/Secciones', (req, res) => {
     metodo.seccionesProfesor(req.body.profesor, res);
+});
+
+router.post('/Asignaturas/Estudiantes', (req, res) => {
+    metodo.mostrarEstudiantesAsignaturas(req.body.profesor, req.body.periodo, res);
 })
 module.exports = router;
