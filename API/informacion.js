@@ -14,7 +14,7 @@ router.get('/Codigo/Existe', (req, res) => {
     metodo.codigoExiste(req.body.codigo, res);
 });
 
-router.get('/Contrasena/Recuperar', (req, res) => {
+router.post('/Contrasena/Recuperar', (req, res) => {
     metodo.Rcontrasena(req.body.usuario, req.body.respuesta1, req.body.respuesta2, req.body.respuesta3, res);
 });
 
