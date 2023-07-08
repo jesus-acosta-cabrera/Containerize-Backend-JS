@@ -7,6 +7,7 @@ const seccion = require('./API/seccion');
 const usuario = require('./API/usuario');
 const profesor = require('./API/profesor');
 const informacion = require('./API/informacion');
+const seleccion = require('./API/seleccion');
 app = exp();
 
 
@@ -33,6 +34,7 @@ app.use('/Secciones',seccion);
 app.use('/Usuarios',usuario);
 app.use('/Profesores',profesor);
 app.use('/Informacion',informacion);
+app.use('/Seleccion',seleccion);
 
 app.use((req, res, next) => {
     const err = new Error('Not Found');
