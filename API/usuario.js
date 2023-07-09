@@ -18,4 +18,12 @@ router.patch('/Pregunta/Modificar', (req, res) => {
     metodo.Mpregunta(req.body.preguntaID, req.body.usuario, req.body.respuesta, res);
 });
 
+router.delete('/Eliminar', (req, res) => {
+    metodo.Eusuario(req.body.usuario, res);
+});
+
+router.delete('/Eliminar/Pregunta', (req, res) => {
+    metodo.Epregunta(req.body.usuario, res);
+})
+
 module.exports = router;
