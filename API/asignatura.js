@@ -15,7 +15,18 @@ router.patch('/Modificar', (req, res) => {
 });
 
 router.delete('/Eliminar', (req, res) => {
-    metodo.Easignatura(req.body.ID, res);
+    metodo.Easignatura(req.body.codigo, res);
 });
 
+router.delete('/Eliminar/Profesor', (req, res) => {
+    metodo.EAsignaturaProfesor(req.body.codigo, res);
+});
+
+router.delete('/Eliminar/Seccion', (req, res) => {
+    metodo.eliminarAsignaturaSeccion(req.body.codigo, res);
+});
+
+router.delete('/Eliminar/Horario', (req, res) => {
+    metodo.eliminarAsignaturaHorario(req.body.codigo, res);
+});
 module.exports = router;

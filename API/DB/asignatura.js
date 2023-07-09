@@ -31,12 +31,48 @@ async function editarAsignatura(ID, codigo, nombre,credito, prerrequisito, res) 
     });
 }
 
-async function eliminarAsignatura(ID, res) {
+async function eliminarAsignatura(codigo, res) {
     await sql.connect(process.env.Server)
 
     let pool = new sql.Request();
-    await pool.input('ID',ID);
+    await pool.input('codigo',codigo);
     let result = await pool.execute('eliminarAsignatura');
+    
+    await res.status(200).json({
+        message: "Consulta realizada."
+    });
+}
+
+async function eliminarAsignaturaProfesor(codigo, res) {
+    await sql.connect(process.env.Server)
+
+    let pool = new sql.Request();
+    await pool.input('codigo',codigo);
+    let result = await pool.execute('eliminarAsignaturaProfesor');
+    
+    await res.status(200).json({
+        message: "Consulta realizada."
+    });
+}
+
+async function eliminarAsignaturaSeccion(codigo, res) {
+    await sql.connect(process.env.Server)
+
+    let pool = new sql.Request();
+    await pool.input('codigo',codigo);
+    let result = await pool.execute('eliminarAsignaturaSeccion');
+    
+    await res.status(200).json({
+        message: "Consulta realizada."
+    });
+}
+
+async function eliminarAsignaturaHorario(codigo, res) {
+    await sql.connect(process.env.Server)
+
+    let pool = new sql.Request();
+    await pool.input('codigo',codigo);
+    let result = await pool.execute('eliminarAsignaturaHorario');
     
     await res.status(200).json({
         message: "Consulta realizada."
@@ -60,5 +96,8 @@ module.exports = {
     Iasignatura : insertarAsignatura,
     Masignatura : editarAsignatura,
     asignarProfesor : asignarProfesor,
-    Easignatura : eliminarAsignatura
+    Easignatura : eliminarAsignatura,
+    EAsignaturaProfesor : eliminarAsignaturaProfesor,
+    eliminarAsignaturaSeccion : eliminarAsignaturaSeccion,
+    eliminarAsignaturaHorario : eliminarAsignaturaHorario
 }
