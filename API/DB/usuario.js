@@ -59,20 +59,18 @@ async function eliminarUsuario(ID, res) {
     });
 }
 
-async function insertarPregunta(preguntaID, usuario, respuesta, res){
+async function Ipregunta(preguntaID, usuario, respuesta, res){
     await sql.connect(process.env.Server);
 
     let pool = new sql.Request();
-    await pool.input('preguntaID',preguntaID);
-    await pool.input('usuario',usuario);
-    await pool.input('respuesta',respuesta);
 
-    let result = await pool.execute('insertarPreguntaUsuario');
+    await pool.input('preguntaID', preguntaID);
+    await pool.input('usuario', usuario);
+    await pool.input('respuesta', respuesta);
 
-    res.status(200).json({
-        message: "Consulta Realizada."
-    });
-    
+    await pool.execute('insertarPreguntaUsuario');
+
+    return res.status(200).json({message:"Consulta Realizada!"})
 }
 
 async function editarPregunta (pID, usuario, respuesta, res){
@@ -97,6 +95,6 @@ module.exports = {
     Iusuario : insertarUsuario,
     Musuario : editarUsuario,
     Eusuario : eliminarUsuario,
-    Ipregunta : insertarPregunta,
+    Ipregunta : Ipregunta,
     Mpregunta : editarPregunta
 }

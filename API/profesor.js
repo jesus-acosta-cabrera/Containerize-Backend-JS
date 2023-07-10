@@ -4,7 +4,7 @@ const exp = require('express');
 const router = exp.Router();
 
 router.post('/Insertar', (req, res) => {
-    CRUD.Iusuario(req.body.nombre, req.body.usuario, req.body.apellido,req.body.correo, req.body.contrasena, req.body.rolID, NULL, res);
+    CRUD.Iusuario(req.body.nombre, req.body.usuario, req.body.apellido,req.body.correo, req.body.contrasena, req.body.rolID, 10, res);
 });
 
 router.patch('/Actualizar', (req, res) => {
