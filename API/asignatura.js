@@ -11,7 +11,7 @@ router.post('/Asignar/Profesor', (req, res) => {
 });
 
 router.patch('/Modificar', (req, res) => {
-    metodo.Masignatura(req.body.ID,req.body.codigo, req.body.nombre, req.body.credito, NULL, res);
+    metodo.Masignatura(req.body.codigo, req.body.nombre, req.body.credito, req.body.area, res);
 });
 
 router.delete('/Eliminar', (req, res) => {

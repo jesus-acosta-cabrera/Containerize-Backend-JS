@@ -15,15 +15,14 @@ async function insertarAsignatura(codigo, nombre,credito, area, res) {
     });
 }
 
-async function editarAsignatura(ID, codigo, nombre,credito, prerrequisito, res) {
+async function editarAsignatura(codigo, nombre, credito, area, res) {
     await sql.connect(process.env.Server, res)
 
     let pool = new sql.Request();
-    await pool.input('ID',ID);
+    await pool.input('area',area);
     await pool.input('codigo',codigo);
     await pool.input('nombre',nombre);
     await pool.input('credito',credito);
-    await pool.input('prerrequisitoID',prerrequisito);
     let result = await pool.execute('editarAsignatura');
     
     await res.status(200).json({
