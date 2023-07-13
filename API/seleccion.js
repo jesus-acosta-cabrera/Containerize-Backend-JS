@@ -4,7 +4,7 @@ const router = exp.Router();
 
 //
 router.post('/Secciones/Mostrar', (req, res) => {
-    metodo.mostrarSecciones(req.body.periodo, req.body.carrera, res);
+    metodo.mostrarSecciones(req.body.periodo, req.body.carrera, req.body.estudiante, res);
 });
 
 //
