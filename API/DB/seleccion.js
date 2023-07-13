@@ -24,14 +24,12 @@ async function mostrarSeccionesSeleccionadas(periodo, estudiante, res) {
     res.status(200).json(result.recordset);
 }
 
-async function verificarHorario(dia, hora, estudiante, codigo, res) {
+async function verificarHorario(Viejo, Nuevo, res) {
     await sql.connect(process.env.Server);
 
     let pool = new sql.Request();
-    await pool.input('hDia',dia);
-    await pool.input('hHora',hora);
-    await pool.input('estudiante',estudiante);
-    await pool.input('codigoA',codigo);
+    await pool.input('HorarioV',Viejo);
+    await pool.input('HorarioN',Nuevo);
     
     let result = await pool.execute('verificarHorario');
     

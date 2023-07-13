@@ -13,23 +13,19 @@ router.post('/Secciones/Seleccionadas', (req, res) => {
 });
 //
 router.post('/Horario/Verificar', (req, res) => {
-    metodo.verificarHorario(req.body.dia, req.body.hora, req.body.estudiante, req.body.codigo, res);
+    metodo.verificarHorario(req.body.horarioV, req.body.horarioN, res);
 });
 
 
 router.post('/Estudiantes/Seleccionar', (req, res) => {
-    for(let x = 0; x < req.body.length; x++){
-        metodo.asignarSeccion(req.body[x].estudiante, req.body[x].seccion, res);
-    }
+    metodo.asignarSeccion(req.body.estudiante, req.body.seccion, res);
     res.status(200).json({
         mensaje: "Transaccion Realizada!"
     });
 });
 
 router.delete('/Estudiantes/QuitarSeleccion', (req, res) => {
-    for(let x = 0; x < req.body.length; x++){
-        metodo.salirSeccion(req.body[x].estudiante, req.body[x].seccion, res);
-    }
+    metodo.salirSeccion(req.body.estudiante, req.body.seccion, res);
     res.status(200).json({
         mensaje: "Transaccion Realizada!"
     });
