@@ -1,10 +1,12 @@
 const sql = require('mssql');
 
-async function mostrarSecciones(periodo,res) {
+async function mostrarSecciones(periodo, carrera,res) {
     await sql.connect(process.env.Server);
 
     let pool = new sql.Request();
     await pool.input('periodo',periodo);
+    await pool.input('carrera',carrera);
+    
     let result = await pool.execute('mostrarSecciones');
     
     res.status(200).json(result.recordset);
